@@ -35,6 +35,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'about' %}">About</a>
+            <a class="nav-link" href="{% url 'asset_home' %}">Asset</a>
+            <a class="nav-link" href="{% url 'handover_home' %}">Handover</a>
+            <a class="nav-link" href="{% url 'staff_home' %}">Staff</a>
           </li>
         </ul>
         {% if user.is_authenticated %}
