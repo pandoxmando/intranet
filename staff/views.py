@@ -1,9 +1,7 @@
 from django.views.generic import TemplateView
 
+class StaffHomePageView(TemplateView):
+    template_name = "staff/home.html"
 
-# class HomePageView(TemplateView):
-#     template_name = "pages/home.html"
-# ;
-
-# class AboutPageView(TemplateView):
-#     template_name = "pages/about.html"
+class StaffDetailsView(TemplateView):
+    template_name = "staff/details.html"

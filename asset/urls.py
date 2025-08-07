@@ -1,8 +1,7 @@
 from django.urls import path
 
-# from .views import HomePageView, AboutPageView
-
-# urlpatterns = [
-#     path("", HomePageView.as_view(), name="home"),
-#     path("about/", AboutPageView.as_view(), name="about"),
-# ]
+from .views import assetHomePageView, assetDetailsView 
+urlpatterns = [
+    path('', assetHomePageView.as_view(), name='asset_home'),  
+    path('details/', assetDetailsView.as_view(), name='asset_details'),
+]
