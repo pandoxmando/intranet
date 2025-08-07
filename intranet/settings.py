@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "accounts",
     "pages",
     'staff',
+    'asset',
+    'handover'
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware

@@ -5,8 +5,44 @@
 
 {% block content %}
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-  {% for asset in assets %}
-  <p>{{asset.serial_number}}</p>
-  {% endfor %}
+  <h1 class="display-4">Asset List</h1>
+  <a href="{% url 'asset_create' %}" class="btn btn-primary mb-3">Create New Asset</a>
+  {% if messages %}
+    <div class="alert alert-info">
+      {% for message in messages %}
+        <p>{{ message }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+  {% if assets %}
+  <table>
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Serial Number</th>
+        <th>Specs</th>
+        <th>Category</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for asset in assets %}
+      <tr>
+        <td>{{ asset.code }}</td>
+        <td>{{ asset.serial_number }}</td>
+        <td>{{ asset.specs }}</td>
+        <td>{{ asset.category }}</td>
+        <td>
+          <a href="{% url 'asset_update' asset.pk %}" class="btn btn-warning">Edit</a>
+          <a href="{% url 'asset_delete' asset.pk %}" class="btn btn-danger">Delete</a>
+          <a href="{% url 'asset_details' asset.pk %}" class="btn btn-info">Details</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p>No assets available.</p>
+  {% endif %}
 </div>
 {% endblock content %}

@@ -8,5 +8,5 @@ class Asset(models.Model):
     specs = models.TextField(max_length=100, null=False)
     category = models.CharField(max_length=50, null=False, choices=CATEGORIES)
 
-    def __init__(self):
+    def __str__(self):
         return f'{self.serial_number} - {self.category}'
